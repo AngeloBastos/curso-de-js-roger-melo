@@ -79,8 +79,8 @@ Não se assuste com as crases e os cifrões. Conversaremos mais sobre operaçõe
 matemáticas e strings (textos) em breve =)
 */
 
-const numberTen = 10
-console.log(`Em ${currentYear + numberTen}, estarei com ${myAge + numberTen} anos.`)
+const ten = 10
+console.log(`Em ${currentYear + ten}, estarei com ${myAge + ten} anos.`)
 
 /*
 10 - Abra o site abaixo no browser e faça o seguinte:
