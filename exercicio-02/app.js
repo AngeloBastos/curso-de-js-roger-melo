@@ -147,7 +147,7 @@ const harryPotterAuthor = 'J.K. Rowling'
 
 const bestMovie = 'E o Oscar de melhor filme vai para: "La la land"!'
 
-const realBestMovie = bestMovie.replace("La la land", "Moonlight")
+const realBestMovie = bestMovie.replace('La la land', 'Moonlight')
 
 // console.log(realBestMovie)
 
@@ -250,6 +250,6 @@ let newName = name[0].toUpperCase() + name.slice(1,6) + ' ' + name[7].toUpperCas
 - Exiba a "newName" no console;
 */
 
-newName = `${name[0].toUpperCase() + name.slice(1,6)} ${name[7].toUpperCase() + name.slice(8)}`
+newName = `${name[0].toUpperCase()}${name.slice(1,6)} ${name[7].toUpperCase()}${name.slice(8)}`
 
 console.log(newName)
