@@ -22,9 +22,7 @@ let brazilianFoods = []
 - Exiba a brazilianFoods no console.
 */
 
-brazilianFoods.push('Coxinha')
-brazilianFoods.push(null)
-brazilianFoods.push('Brigadeiro')
+brazilianFoods.push('Coxinha', null, 'Brigadeiro')
 
 // console.log(brazilianFoods)
 
@@ -146,9 +144,9 @@ constante que você criou.
 'A SOBREMESA é um doce à base de coco, tradicional na América Latina e em Angola.'
 */
 
-const dessert = `${dogNames[0].slice(dogNames[0].length - 2)}${dogNames[1].slice(dogNames[1].length - 2)}${dogNames[3].slice(dogNames[3].length - 2)}`
+const dessert = `${dogNames[0].slice(3)}${dogNames[1].slice(2)}${dogNames[3].slice(2)}`.replace('n', 'd')
 
-// console.log(`A ${dessert.replace('n', 'd')} é um doce à base de coco, tradicional na América Latina e em Angola.`)
+console.log(`A ${dessert} é um doce à base de coco, tradicional na América Latina e em Angola.`)
 
 /*
 12 - Comente o console.log acima e:
