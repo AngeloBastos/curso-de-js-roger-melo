@@ -14,9 +14,10 @@
 */
 
 const my3FavoriteTVShows = ['Sherlock Holmes', 'Mr. Robot', 'Merlin']
-const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows}, SÉRIE_02 e SÉRIE_03.`
+const sentence = `Minhas 3 séries favoritas são: ${my3FavoriteTVShows.join(', ')}.`
+  .replace(', Me', ' e Me')
 
-console.log(sentence)
+// console.log(sentence)
 
 /*
   02 - Comente o console.log() acima e:
@@ -71,11 +72,9 @@ const typeSentence = `O tipo de dado que a const "isRandomTVShowIncluded" armaze
   caracteres? BOOLEAN."
 */
 
-const charactersNumber = 39
-const typeSentenceBiggerThanCharactresNumber = typeSentence.length > charactersNumber
-const convertToString = String(typeSentenceBiggerThanCharactresNumber)
+const charactersNumber = 39 // numberToCheck
 
-// console.log(`A string que a "typeSentence" armazena tem mais de ${charactersNumber}  caracteres? ${convertToString[0].toUpperCase()}${convertToString.slice(1)}.`)
+// console.log(`A string que a "typeSentence" armazena tem mais de ${charactersNumber}  caracteres? ${String(typeSentence.length > charactersNumber).replace('t', 'T')}.`)
 
 /*
   06 - Comente o console.log() acima e:
@@ -89,7 +88,7 @@ const convertToString = String(typeSentenceBiggerThanCharactresNumber)
 
 const falsyValues = [0, "", false, '', ``, null, undefined, NaN]
 
-console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o BOOLEAN.`)
+// console.log(`Todos os ${falsyValues.length} itens do array "falsyValues" são falsy. Inclusive o ${falsyValues[2]}.`)
 
 /*
   07 - Comente o console.log() acima e:
@@ -123,7 +122,7 @@ const crazyConversion = Boolean(crazyOperation)
 const ages = [31, 82, 61, 11]
 const agesSum = ages[0] + ages[2]
 
-// console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <== 92}`)
+// console.log(`A soma entre o 1º e o 3º item de "ages" é menor ou igual a 92. Essa afirmação é: ${agesSum <= 92}`)
 
 /*
   09 - Comente o console.log() acima e:
@@ -148,4 +147,4 @@ const isNotAString = typeof randomTVShow !== 'string'
 
 const evenNumbers = [0, 2, 4, 6, 8, 10]
 
-console.log()
+console.log(evenNumbers.indexOf(8) !== -1)
