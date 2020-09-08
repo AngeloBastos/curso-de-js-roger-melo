@@ -25,6 +25,14 @@
 
 const fruits = ['morango', 'banana', 'mamão']
 
+if (fruits.includes('abacaxi')) {
+  console.log('A string "abacaxi" existe no array fruits.')
+} else if (fruits.includes('pera')) {
+  console.log('A string "pera" existe no array fruits.')
+} else {
+  console.log('Nem pera nem abacaxi existem no array "fruits".')
+}
+
 /*
   02
 
@@ -37,6 +45,18 @@ const fruits = ['morango', 'banana', 'mamão']
   Obs.: tanto a expressão do lado esquerdo quanto a do lado direito do operador  
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
+
+const currentHour = 11
+const itIsBetween6And12Clock = currentHour >= 6 && currentHour <= 11
+const itIsBetween12And18Clock = currentHour >= 12 && currentHour <= 17
+
+if (itIsBetween6And12Clock) {
+  console.log('Bom dia!')
+} else if (itIsBetween12And18Clock) {
+  console.log('Boa tarde!')
+} else {
+  console.log('Boa noite!')
+}
 
 /*
   03
@@ -52,6 +72,20 @@ const fruits = ['morango', 'banana', 'mamão']
     também está funcionando.
 */
 
+const age = 24
+const isChild = age <= 7
+const isOlder = age >= 65
+
+let priceMessage
+
+if (isChild || isOlder) {
+  priceMessage = 'Para você, a entrada é grátis!'
+} else {
+  priceMessage = 'A entrada é R$ 30,00.'
+}
+
+console.log(priceMessage)
+
 /*
   04
 
@@ -62,6 +96,19 @@ const fruits = ['morango', 'banana', 'mamão']
 */
 
 const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
+let NumbersBetween11And90 = []
+
+
+for (i = 0; i < numbers.length; i++) {
+  const number = numbers[i]
+  const isNumberBetween11And90 = number >= 11 && number <= 90
+  if (isNumberBetween11And90) {
+    NumbersBetween11And90.push(number)
+  }
+}
+
+console.log(NumbersBetween11And90)
+
 
 /*
   05
@@ -77,6 +124,20 @@ const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
 */
 
 const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
+
+let booleanAmout = numberAmout = stringAmout = 0
+
+for (i = 0; i < crazyArray.length; i++) {
+  const typeOfItem = typeof crazyArray[i]
+  const isItemABoolean = typeOfItem === 'boolean'
+  const isItemANumber = typeOfItem === 'number'
+
+  if (isItemABoolean) booleanAmout++
+  else if (isItemANumber) numberAmout++
+  else stringAmout++
+}
+
+console.log(`O crazyArray tem ${booleanAmout} booleans, ${numberAmout} números e ${stringAmout} strings.`)
 
 /*
   06
@@ -96,3 +157,18 @@ const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false
 */
 
 const randomNumbers = [73, 4, 67, 10, 31, 58]
+const evenNumbers = []
+const oddNambers = []
+
+for (let i = 0; i < randomNumbers.length; i++) {
+  const number = randomNumbers[i]
+  const isNumberAEven = number % 2 === 0
+
+  if (isNumberAEven) evenNumbers.push(number)
+  else oddNambers.push(number)
+}
+
+const evenNumbersString = evenNumbers.join(', ').replace(', 5', ' e 5')
+const oddNumbersString = oddNambers.join(', ').replace(', 3', ' e 3')
+
+console.log(`Numeros ímpares: ${oddNumbersString}. Números pares: ${evenNumbersString}.`)
