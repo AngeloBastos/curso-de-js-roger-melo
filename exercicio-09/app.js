@@ -13,9 +13,12 @@
     valor no console.
 */
 
-function convertToString (value) {
-  return String(value)
-}
+// function convertToString (value) {
+//   return String(value)
+// }
+
+const convertToString = value => String(value)
+console.log(convertToString(33))
 
 /*
   02
@@ -23,6 +26,9 @@ function convertToString (value) {
   - Crie uma função que retorne a quantidade de caracteres que uma string  
     recebida por parâmetro possui.
 */
+
+const getStringLength = string => string.length
+console.log(getStringLength('javascript')) 
 
 /*
   03
@@ -34,12 +40,19 @@ function convertToString (value) {
   "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
 */
 
+const strinValue = "CHOCOTONE E OVO DE PÁSCOA JUNTOS NO MERCADO EM PLENO FEVEREIRO"
+const convertInLowerCase = value => value.toLowerCase()
+console.log(convertInLowerCase(strinValue))
+
 /*
   04
 
   - Crie uma função que recebe 2 parâmetros: um caractere e uma string;
   - Ao ser invocada, a função deve retornar o index do caractere na string.
 */
+
+const getIndex = (letter, sentence) => sentence.indexOf(letter)
+console.log(getIndex('a', 'angelo'))
 
 /*
   05
@@ -48,12 +61,18 @@ function convertToString (value) {
     passado por argumento existe no array (também passado por argumento).
 */
 
+const isItemIncluded = (item, array) => array.includes(item)
+console.log(isItemIncluded(4, [2, 3, 5, 10, 4]))
+
 /*
   06
 
   - Crie uma função que retorna a concatenação de 2 arrays, passados como  
     argumentos em sua invocação;
 */
+
+const concatArrays = (firstArray, secondArray) => firstArray.concat(secondArray)
+console.log(concatArrays([1,2,3],[4,5,6]))
 
 /*
   07
@@ -62,12 +81,20 @@ function convertToString (value) {
     mas com o último item removido.
 */
 
+const removeLastItem = array => {
+  array.pop()
+  return array
+}
+console.log(removeLastItem(['Morango', 'Manga', 'Mamão', 'Banana']))
+
 /*
   08
 
   - Crie uma função que retorna se o valor passado como argumento em sua  
     invocação é null.
 */
+const isNull = value => value === null
+console.log(isNull(null))
 
 /*
   09
@@ -80,6 +107,11 @@ function convertToString (value) {
     foi exibido.
 */
 
+const invokeCallback = callback => callback()
+const showName = () => console.log('Angelo Henrique')
+
+invokeCallback(showName)
+
 /*
   10
 
@@ -91,6 +123,11 @@ function convertToString (value) {
     resulte no triplo de 33.
 */
 
+const callCallback = (value, callback) => callback(value)
+const triple = number => number * 3
+
+console.log(callCallback(33, triple))
+
 /*
   11
 
@@ -101,6 +138,12 @@ function convertToString (value) {
 */
 
 const numbers = [1, 2, 3]
+const showNumberInfo = (item, index, array) => {
+  const itemPosition = index + 1
+  const items = array.join(', ')
+  console.log(`O ${itemPosition}º item do array [${items}] é ${item}.`)
+}
+numbers.forEach(showNumberInfo)
 
 /*
   12
@@ -113,9 +156,15 @@ const numbers = [1, 2, 3]
 const letters = ['v', 'e', 'p']
 let lettersCopy = []
 
-for (let i = 0; i < letters.length; i++) {
-  lettersCopy.push(letters[i])
-}
+// for (let i = 0; i < letters.length; i++) {
+//   lettersCopy.push(letters[i])
+// }
+
+letters.forEach(letter => {
+  lettersCopy.push(letter)
+})
+
+console.log(lettersCopy)
 
 /*
   13
@@ -146,6 +195,12 @@ const review = [
 
 let paragraphs = ''
 
+const createParagraphs = paragraph => {
+  paragraphs += `<p>${paragraph}}</p>`
+}
+
+review.forEach(createParagraphs)
+
 section.innerHTML = paragraphs
 
 /*
@@ -168,3 +223,28 @@ section.innerHTML = paragraphs
     pelo restante da quantidade de pessoas que curtiram o post (além das duas  
     pessoas já mencionadas no início da mensagem).
 */
+
+const likes = ['Angelo', 'Daniel', 'Camila', 'Marcos', 'Roger']
+
+const getLikeMesage = (names = []) => {
+  const firstName = names[0],
+    secondName = names[1],
+    thirdName = names[2],
+    totalNames = names.length,
+    totalNamesMinusTwo = totalNames - 2
+  
+  switch (totalNames) {
+    case 0:
+      return 'Ninguém curtiu isso'
+    case 1:
+      return `${firstName} curtiu isso`
+    case 2:
+      return `${firstName} e ${secondName} curtiram isso`
+    case 3:
+      return `${firstName}, ${secondName} e ${thirdName} curtiram isso`
+    default:
+      return `${firstName}, ${secondName} e mais ${totalNamesMinusTwo} pessoas curtiram isso`
+  }
+}
+
+console.log(getLikeMesage(likes))
