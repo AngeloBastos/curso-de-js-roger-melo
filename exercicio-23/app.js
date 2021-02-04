@@ -6,6 +6,9 @@
 */
 
 const myString = '    JS      '
+const trimmedString = myString.trim()
+
+console.log(trimmedString)
 
 /*
   02
@@ -23,17 +26,25 @@ const people = [
   { firstName: 'Eric', lastName: 'Silva', score: 82 }
 ]
 
+const peopleOrderedByScore = people
+  .map(({ firstName, lastName, score }) => ({ firstName, lastName, score }))
+  .sort((person1, preson2) => person1.score - preson2.score)
+
+console.log({ people, peopleOrderedByScore })
+
 /*
   03
 
   - Gere um novo array com apenas os animais que contém 3 letras no nome;
 
-  Ps: Neste e nos demais exercícios, utilize o debugger para visualizar o valor 
       final que os exercícios pedem. Após resolver um exercício, remova o 
-      debugger antes de partir para o próximo.
 */
 
 const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
+const animalsWithNameEqualCharacters3 = animals
+  .filter(({ length }) => length === 3)
+
+// Name const: threeLetterAnimals
 
 /*
   04
@@ -42,7 +53,9 @@ const animals = ['cão', 'gato', 'boi', 'leão', 'gnu', 'alce', 'ema']
     nome de cada animal. Ex.: [6, 8, 2].
 */
 
+const characterAmountInArrayAnimals = animals.map(({ length }) => length)
 
+// Const Name: animalNameLength
 
 /*
   05
@@ -60,7 +73,10 @@ const friends = [
   { id: 5, name: 'Solange', nearMe: false }
 ]
 
+const friendsNear = friends.filter(({ nearMe }) => nearMe)
+  .map(({ name }) => name)
 
+// Const Name: friendsNearMe, nameOfFriendsNearMe
 
 /*
   06
@@ -70,6 +86,8 @@ const friends = [
 */
 
 const numbers = [46, 86, 212, 29, 51, 9, 25, 42, 81]
+const oddNumbersSum = numbers.filter(number => number % 2)
+  .reduce((acc, number) => acc + number, 0)
 
 /*
   07
@@ -91,3 +109,7 @@ const data = [{
   country: 'Indonesia',
   population: 263991379
 }]
+
+const amountPopulationCountry = data
+  .filter(({ country }) => country !== 'China')
+  .reduce((acc, { population }) => acc + population, 0)
