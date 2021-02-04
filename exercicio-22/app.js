@@ -6,7 +6,13 @@
   - Exiba o array ordenado no console.
 */
 
+const getArrayCopy = array => array.map(item => item)
+
 const names = ['Caio', 'André', 'Dário']
+
+const namesInAlphabeticalOrder = getArrayCopy(names).sort()
+
+console.log(namesInAlphabeticalOrder)
 
 /*
   02
@@ -23,6 +29,14 @@ const characters = [
   { id: 04, name: 'Mufasa' }
 ]
 
+const charactersOrderedById = characters
+  .map(({ id, name }) => ({ id, name }))
+  .sort((item1, item2) => item1.id - item2.id)
+
+// characters[0].name = 'oi'
+
+console.log(charactersOrderedById)
+
 /*
   03
 
@@ -32,6 +46,10 @@ const characters = [
 */
 
 const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
+const numbersInAscendingOrder = getArrayCopy(numbers)
+  .sort((item1, item2) => item1 - item2)
+
+console.log(numbersInAscendingOrder)
 
 /*
   04
@@ -40,6 +58,10 @@ const numbers = [41, 15, 63, 349, 25, 22, 143, 64, 59, 291]
 */
 
 const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
+
+const numberGreaterThan50 = randomNumbers.find(number => number > 50)
+
+console.log(numberGreaterThan50)
 
 /*
   05
@@ -50,6 +72,9 @@ const randomNumbers = [10, 5, 0, 40, 60, 10, 20, 70]
 */
 
 const people = ['Cauã', 'Alfredo', 'Bruno']
+const peopleInReverseAlphabeticalOrder = getArrayCopy(people).sort().reverse()
+
+console.log(peopleInReverseAlphabeticalOrder)
 
 /*
   06
@@ -60,6 +85,15 @@ const people = ['Cauã', 'Alfredo', 'Bruno']
 */
 
 const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
+const cookedIngredients = ingredients.reduce((acc, item, index, array) => {
+  const correctWordGender = /a$/.test(item) ? 'cozida' : 'cozido'
+  const isLastItem = index === array.length - 1
+  const ingerdientMessage = acc + `${item} ${correctWordGender}`
+
+  return isLastItem ? ingerdientMessage : `${ingerdientMessage}, `
+}, '')
+
+console.log(cookedIngredients)
 
 /*
   07
@@ -68,7 +102,7 @@ const ingredients = ['vinho', 'tomate', 'cebola', 'cogumelo']
     assistiram apenas os filmes da Disney.
 */
 
-const topBrazilmovies = [
+const topBrazilMovies = [
   { title: 'Vingadores: Ultimato', peopleAmount: 19686119, distributedBy: 'Disney' },
   { title: 'Titanic', peopleAmount: 17050000, distributedBy: 'Paramount / 20th Century' },
   { title: 'O Rei Leão', peopleAmount: 16267649, distributedBy: 'Disney' },
@@ -80,6 +114,12 @@ const topBrazilmovies = [
   { title: 'Os Vingadores', peopleAmount: 10968065, distributedBy: 'Disney' },
   { title: 'Dona Flor e Seus Dois Maridos', peopleAmount: 10735524, distributedBy: 'Embrafilme' }
 ]
+
+const peopleAmount = topBrazilMovies
+  .filter(({ distributedBy }) => distributedBy === 'Disney')
+  .reduce((acc, { peopleAmount }) => acc + peopleAmount, 0)
+
+console.log(peopleAmount)
 
 /*
   08
@@ -101,12 +141,30 @@ const pets = [
   { name: 'Chico', age: 6, gender: 'Male', type: 'Dog' }
 ]
 
+const dogsInHumanAge = pets
+  .filter(({ type }) => type === 'Dog')
+  .map(({ name, age, gender, type }) => ({ name , age: age * 7, gender, type }))
+
+console.log(dogsInHumanAge)
+
 /*
   09
   
-  - Considerando o array topBrazilmovies, através do map ou do reduce, insira 
+  - Considerando o array topBrazilMovies, através do map ou do reduce, insira 
     os nomes dos filmes na ul do index.html.
 */
+
+const ul = document.querySelector('.list-group')
+
+// const movieNames = topBrazilMovies
+//   .map(item => `<li>${item.title}</li>`)
+//   .join('')
+
+
+const movieNames = topBrazilMovies
+  .reduce((acc, { title }) => acc + `<li>${title}</li>`, '')
+
+ul.innerHTML = movieNames
 
 /*
   10
